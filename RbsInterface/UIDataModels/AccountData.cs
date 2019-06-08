@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RbsInterface.UIData
+namespace RbsInterface.UIDataModels
 {
     public class AccountData
     {
-        public object transactions { get; set; }
+        public Array transactions { get; set; }
     }
 }

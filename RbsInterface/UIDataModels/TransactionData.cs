@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RbsInterface.UIData
+namespace RbsInterface.UIDataModels
 {
     public class TransactionData
     {
@@ -10,6 +10,6 @@ namespace RbsInterface.UIData
         public bool debit { get; set; }
         public bool credit { get; set; }
         public string transactionType { get; set; }
-        public string fee { get; set; }
+        public string feeType { get; set; }
     }
 }
