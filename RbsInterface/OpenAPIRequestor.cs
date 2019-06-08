@@ -9,6 +9,7 @@ using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using RbsInterface.AccessModels;
 using RbsInterface.Model;
 
@@ -96,11 +97,11 @@ namespace RbsInterface
                     HttpClient postClient = new HttpClient(clientHandler);
                     postClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     postClient.DefaultRequestHeaders.Add("x-fapi-financial-id", "0015800000jfwxXAAQ");
+                    postClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYXhfYWdlIjo4NjQwMCwiYXBwIjoiYWNjZXNzcGF5IiwiYXVkIjoiMjVjZmJmMzEtYmE2NS00NzU1LWFmZjItZGI4ODhkNzVmNzk5Iiwib3JnIjoiYWNjZXNzcGF5LmNvbSIsInNjb3BlIjoiYWNjb3VudHMiLCJpc3MiOiJuYXR3ZXN0LnVzZWluZmluaXRlLmlvIiwidG9rZW5fdHlwZSI6IkFDQ0VTU19UT0tFTiIsImlhdCI6MTU2MDAxMjc3MSwianRpIjoiYjYxZGUwMDEtZWQ1Zi00ZTJiLTllY2MtNTBlMWNmYTgzODBlIiwiY2xpZW50X2lkIjoiMjVjZmJmMzEtYmE2NS00NzU1LWFmZjItZGI4ODhkNzVmNzk5IiwidGVuYW50IjoiTmF0V2VzdCJ9.HuItRo4cvnuIuxASgNwVeBkhCL2cvb36qLGotgRZa_uNErWRXOS2XQyzhTafnNfibgnql-XdXeAYvLM7ctE6jVlJaULvi5bQ3En9BXMTFzFV7a7bDafFydDerbtHa1_x8NXPGQxXqR_HH8YUytEKkKY7d75qfBVp24KSH8VHPkuJ5q8HXrzlWcCFBdkbZEVEKLiLRcQsn9dG3cJvDgewXc__Uq2UdLN4TWZh06LdiyOtpmfUPS8tI2DVVpe5I-c-exT4iwYnsJY-OQcG0jPq2v52QGcRXlk3uA-Rv54-PzGUDuVIU00F0wc8q35c7kge6yOmLxkJvb-ci8GOAkCsCQ");
                     postClient.BaseAddress = new Uri("https://ob.natwest.useinfinite.io/");
 
-                    Data consentPermissions = new Data();
-
-                    return postClient.PostAsJsonAsync(new Uri(postClient.BaseAddress + address), consentPermissions).Result;
+                    Root consentPermissions = new Root();
+                    return postClient.PostAsJsonAsync<string>(new Uri(postClient.BaseAddress + address), "").Result;
                 }
             }
             catch (Exception e)

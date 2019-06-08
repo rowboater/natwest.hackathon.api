@@ -4,6 +4,16 @@ using System.Text;
 
 namespace RbsInterface.AccessModels
 {
+    public class Root
+    {
+        public Root()
+        {
+            Data = new Data();
+        }
+
+        public Data Data { get; set; }
+    }
+
     public class Data
     {
         public Data()
