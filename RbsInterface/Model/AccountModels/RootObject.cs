@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using RbsInterface.Model.AccountModels;
 
 namespace Api
 {

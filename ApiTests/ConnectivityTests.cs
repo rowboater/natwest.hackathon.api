@@ -13,7 +13,7 @@ namespace ApiTests
         [Test]
         public void CheckAuthorisation()
         {
-           OpenAPIRequestor sut = new OpenAPIRequestor(true);
+           OpenAPIRequestor sut = new OpenAPIRequestor();
            var response = sut.PostAuthorisation("token");
 
            Assert.IsTrue(response.IsSuccessStatusCode);
@@ -22,7 +22,7 @@ namespace ApiTests
         [Test]
         public void CheckConsent()
         {
-            OpenAPIRequestor sut = new OpenAPIRequestor(true);
+            OpenAPIRequestor sut = new OpenAPIRequestor();
             var response = sut.PostConsentRequest("open-banking/v3.1/aisp/account-access-consents");
 
             Assert.IsTrue(response.IsSuccessStatusCode);

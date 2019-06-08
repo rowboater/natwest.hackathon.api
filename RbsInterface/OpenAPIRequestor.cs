@@ -9,7 +9,6 @@ using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using System.Web;
 using RbsInterface.AccessModels;
 using RbsInterface.Model;
 

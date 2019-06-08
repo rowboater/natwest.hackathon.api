@@ -12,6 +12,6 @@ namespace RbsInterface.Model.AccountModels
         public string AccountSubType { get; set; }
         public string Description { get; set; }
         public string Nickname { get; set; }
-        public List<Account2> Account { get; set; }
+        public List<Account2> Account2 { get; set; }
     }
 }
