@@ -8,13 +8,13 @@ namespace RbsInterface
     {
         
 
-        public bool GetAccessToken()
-        {
-            OpenAPIRequestor _apiRequestor = new OpenAPIRequestor(true);
-            var response = _apiRequestor.PostDataAsync("token");
+        //public bool GetAccessToken()
+        //{
+        //    OpenAPIRequestor _apiRequestor = new OpenAPIRequestor(true);
+        //    var response = _apiRequestor.PostDataAsync("token");
 
-            return true;
-        }
+        //    return true;
+        //}
 
         public void GetAccountInformation()
         {
