@@ -6,5 +6,9 @@ namespace RbsInterface
 {
     public class RbsService
     {
+        public void CallToNatwest()
+        {
+
+        }
     }
 }
