@@ -7,6 +7,6 @@ namespace RbsInterface.UIDataModels
     public class ClientData
     {
         public string accountName { get; set; }
-        public object account { get; set; }
+        public List<TransactionData> TransactionDatas { get; set; }
     }
 }

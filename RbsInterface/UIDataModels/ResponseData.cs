@@ -4,8 +4,8 @@ using System.Text;
 
 namespace RbsInterface.UIDataModels
 {
-    public class AccountData
+    public class ResponseData
     {
-        public Array transactions { get; set; }
+        public List<ClientData> ClientDatas { get; set; }
     }
 }
