@@ -1,4 +1,6 @@
+using System.Threading;
 using NUnit.Framework;
+using RbsInterface;
 
 namespace Tests
 {
@@ -10,9 +12,12 @@ namespace Tests
         }
 
         [Test]
-        public void Test1()
+        public void TestEndpointAccess()
         {
-            Assert.Pass();
+            OpenAPIRequestor sut = new OpenAPIRequestor(true);
+            var response = sut.PostDataAsync("token");
+
+            throw new AbandonedMutexException();
         }
     }
 }
