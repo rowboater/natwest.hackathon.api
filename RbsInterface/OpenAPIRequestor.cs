@@ -83,6 +83,42 @@ namespace RbsInterface
             }
         }
 
+        public HttpResponseMessage KeyExchange(string address)
+        {
+            try
+            {
+                using (var clientHandler = new HttpClientHandler())
+                {
+                    clientHandler.ServerCertificateCustomValidationCallback = (message, certificate2, arg3, arg4) =>
+                    {
+                        return true;
+                    };
+
+                    HttpContent content = new FormUrlEncodedContent(new[]
+                    {
+                        new KeyValuePair<string, string>("client_id", "NOwU7XoB_j1J7JUK6B6jm6d8ufHX78UKAeD23lawR00="),
+                        new KeyValuePair<string, string>("client_secret", "tTDtUt7b-ntp7bXm0Il_seml5Lh1gwo9sS-1RzWP56s="),
+                        new KeyValuePair<string, string>("redirectUrl", "http://accesspay.localhost:4200"),
+                        new KeyValuePair<string, string>("grant_type", "authorization_code"),
+                        new KeyValuePair<string, string>("code", "")
+                    });
+
+                    content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
+
+
+                    HttpClient postClient = new HttpClient(clientHandler);
+                    postClient.BaseAddress = new Uri("https://ob.natwest.useinfinite.io/");
+
+                    return postClient.PostAsync(new Uri(postClient.BaseAddress + address), content).Result;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
         public HttpResponseMessage PostConsentRequest(string address)
         {
             try
@@ -101,7 +137,7 @@ namespace RbsInterface
                     postClient.BaseAddress = new Uri("https://ob.natwest.useinfinite.io/");
 
                     Root consentPermissions = new Root();
-                    return postClient.PostAsJsonAsync<string>(new Uri(postClient.BaseAddress + address), "").Result;
+                    return postClient.PostAsJsonAsync<Root>(new Uri(postClient.BaseAddress + address), consentPermissions).Result;
                 }
             }
             catch (Exception e)
