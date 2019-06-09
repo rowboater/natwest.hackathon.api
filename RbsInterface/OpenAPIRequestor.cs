@@ -15,7 +15,7 @@ using RbsInterface.Model;
 
 namespace RbsInterface
 {
-    public class OpenAPIRequestor
+    public class OpenAPIRequestor : IOpenAPIRequestor
     {
         private readonly HttpClient client;
 

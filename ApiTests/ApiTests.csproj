@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RbsInterface\RbsInterface.csproj" />
+    <ProjectReference Include="..\RbsInterface\RbsService.csproj" />
   </ItemGroup>
 
 </Project>
